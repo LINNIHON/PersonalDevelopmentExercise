@@ -1,78 +1,58 @@
 <!DOCTYPE html>
-<!-- HTMLドキュメントの宣言で、このページがHTML5仕様に基づいていることをブラウザに知らせます。 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- 文字エンコーディングとしてUTF-8を指定し、国際的な文字が正しく表示されるようにします。 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- レスポンシブデザインをサポートするためのビューポート設定。デバイスの画面幅に基づいて表示を調整します。 -->
     <title>YourSecretRegister</title>
-    <!-- ブラウザのタブに表示されるページタイトルです。 -->
     <link rel="stylesheet" href="register.css">
-    <!-- 外部CSSファイル(register.css)へのリンク。ページのスタイリングに使用します。 -->
 </head>
 <body>
     <div class="main-box" id="main-box">
-        <!-- コンテンツの主要部分を格納するためのdiv要素。idとclassを使用して特定のCSSスタイルを適用します。 -->
         <form action="#" id="form">
-            <!-- フォーム要素。action="#"とすることで、フォームの送信先をこのページ自身に設定しています。 -->
             <h2>Your Secret<span style="color: purple;">s</span></h2>
-            <!-- ページのタイトル。一部のテキストは紫色で強調表示されます。 -->
             <h4>登録</h4>
-            <!-- 小見出しで「登録」と表示。ユーザにアクションを明示します。 -->
             <div class="input-box">
-                <!-- 入力フィールドを囲むdiv要素で、スタイリングに利用します。 -->
                 <span class="icon">
-                    <!-- アイコンを表示するspan要素。 -->
                     <ion-icon name="person"></ion-icon>
                 </span>
-                <!-- Ioniconsライブラリから人物アイコンを挿入します。 -->
                 <input type="text" placeholder=" " required>
-                <!-- テキスト入力フィールド。名前入力用で、入力が必須です。 -->
                 <label>名前</label>
-                <!-- 入力フィールドのラベル。 -->
             </div>
             <div class="input-box">
                 <span class="icon">
                     <ion-icon name="mail"></ion-icon>
                 </span>
                 <input type="email" placeholder=" " required>
-                <!-- メールアドレス入力用フィールド。Eメール形式での入力が必須です。 -->
                 <label>メール</label>
-                <!-- ラベル。 -->
             </div>
             <div class="input-box">
                 <span class="icon">
                     <ion-icon name="lock-closed"></ion-icon>
                 </span>
                 <input type="password" placeholder=" " required>
-                <!-- パスワード入力用フィールド。入力が必須で、値は隠されます。 -->
                 <label>パスワード</label>
-                <!-- ラベル。 -->
             </div>
             <button type="submit" onclick="triggerFadeOut(event)">登録</button>
-            <!-- 提出ボタン。クリックするとJavaScriptのtriggerFadeOut関数が呼び出されます。 -->
             <div class="link-change-page">
-                <p><a href="login.html">ログイン</a></p>
-                <!-- 既存のアカウントを持つユーザー向けのログインページへのリンク。 -->
+                <p><a href="login.html" onclick="triggerFadeOut(event, 'login.html')">ログイン</a></p>
             </div>
         </form>
     </div>
 
-    <!-- Ioniconsのアイコンライブラリを読み込みます。ESモジュール版と非モジュール版のスクリプト。 -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
-        function triggerFadeOut(event) {
+        function triggerFadeOut(event, targetUrl = null) {
             event.preventDefault();
-            <!-- デフォルトのフォーム送信イベントをキャンセル。 -->
             const mainBox = document.getElementById('main-box');
             mainBox.classList.add('fade-out');
-            <!-- main-box要素にfade-outクラスを追加して、フェードアウト効果を適用します。 -->
             setTimeout(() => {
-                document.getElementById('form').submit();
-                <!-- 5秒後にフォームを自動的に送信します。 -->
-            }, 10000);
+                if (targetUrl) {
+                    window.location.href = targetUrl;
+                } else {
+                    document.getElementById('form').submit();
+                }
+            }, 2000);
         }
     </script>
 </body>

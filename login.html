@@ -1,147 +1,52 @@
-<<<<<<< HEAD
-
 <!DOCTYPE html>
-<!-- HTML文書の宣言、これがHTML5であることをブラウザに伝える -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- 文字セットとしてUTF-8を使用することを指定 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- レスポンシブデザインのためのビューポート設定。デバイスの幅に基づいてコンテンツをスケーリング -->
     <title>YourSecretLogin</title>
-    <!-- ブラウザのタブに表示されるページのタイトル -->
     <link rel="stylesheet" href="login.css">
-    <!-- 外部スタイルシートファイル(login.css)のリンク -->
 </head>
 <body>
     <div class="main-box" id="main-box">
-        <!-- メインのコンテンツを包含するdiv要素、クラスとIDでスタイリングと識別が可能 -->
         <form action="#" id="form">
-            <!-- フォーム要素の開始、action="#"はフォーム送信先が同一ページを指す -->
             <h2>Your Secret<span style="color: purple;">s</span></h2>
-            <!-- 見出し、一部のテキストを紫色で強調 -->
             <h4>ログイン</h4>
-            <!-- 小さな見出しで「ログイン」を表示 -->
             <div class="input-box">
-                <!-- 入力フィールドを囲むdiv要素、スタイリング目的 -->
                 <span class="icon">
-                    <!-- アイコンを表示するためのspan要素 -->
                     <ion-icon name="mail"></ion-icon>
                 </span>
-                <!-- Ioniconsライブラリからメールアイコンを表示 -->
                 <input type="email" placeholder=" " required>
-                <!-- メールアドレス入力用のフィールド、必須属性付き -->
                 <label>メール</label>
-                <!-- 入力フィールドに対するラベル -->
             </div>
             <div class="input-box">
                 <span class="icon">
-                    <!-- パスワードアイコンを表示するためのspan要素 -->
                     <ion-icon name="lock-closed"></ion-icon>
                 </span>
                 <input type="password" placeholder=" " required>
-                <!-- パスワード入力用のフィールド、必須属性付き -->
                 <label>パスワード</label>
-                <!-- 入力フィールドに対するラベル -->
             </div>
             <button type="submit" onclick="triggerFadeOut(event)">ログイン</button>
-            <!-- フォーム送信用のボタン、クリック時にJavaScript関数(triggerFadeOut)を呼び出し -->
             <div class="link-change-page">
-                <p><a href="register.html">新規登録</a></p>
-                <!-- 新規登録ページへのリンク -->
+                <p><a href="register.html" onclick="triggerFadeOut(event, 'register.html')">新規登録</a></p>
             </div>
         </form>
     </div>
 
-    <!-- Ioniconsライブラリのスクリプト。モジュールと非モジュールのバージョンを提供 -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
-        function triggerFadeOut(event) {
-            event.preventDefault(); 
-            <!-- デフォルトのフォーム送信を防止 -->
+        function triggerFadeOut(event, targetUrl = null) {
+            event.preventDefault();
             const mainBox = document.getElementById('main-box');
             mainBox.classList.add('fade-out');
-            <!-- main-box要素にfade-outクラスを追加、CSSで定義されたアニメーションをトリガー -->
             setTimeout(() => {
-                document.getElementById('form').submit(); 
-                <!-- 5秒後にフォームを強制的に送信 -->
-            }, 10000); 
+                if (targetUrl) {
+                    window.location.href = targetUrl;
+                } else {
+                    document.getElementById('form').submit();
+                }
+            }, 2000);
         }
     </script>
 </body>
 </html>
-=======
-
-<!DOCTYPE html>
-<!-- HTML文書の宣言、これがHTML5であることをブラウザに伝える -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- 文字セットとしてUTF-8を使用することを指定 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- レスポンシブデザインのためのビューポート設定。デバイスの幅に基づいてコンテンツをスケーリング -->
-    <title>YourSecretLogin</title>
-    <!-- ブラウザのタブに表示されるページのタイトル -->
-    <link rel="stylesheet" href="login.css">
-    <!-- 外部スタイルシートファイル(login.css)のリンク -->
-</head>
-<body>
-    <div class="main-box" id="main-box">
-        <!-- メインのコンテンツを包含するdiv要素、クラスとIDでスタイリングと識別が可能 -->
-        <form action="#" id="form">
-            <!-- フォーム要素の開始、action="#"はフォーム送信先が同一ページを指す -->
-            <h2>Your Secret<span style="color: purple;">s</span></h2>
-            <!-- 見出し、一部のテキストを紫色で強調 -->
-            <h4>ログイン</h4>
-            <!-- 小さな見出しで「ログイン」を表示 -->
-            <div class="input-box">
-                <!-- 入力フィールドを囲むdiv要素、スタイリング目的 -->
-                <span class="icon">
-                    <!-- アイコンを表示するためのspan要素 -->
-                    <ion-icon name="mail"></ion-icon>
-                </span>
-                <!-- Ioniconsライブラリからメールアイコンを表示 -->
-                <input type="email" placeholder=" " required>
-                <!-- メールアドレス入力用のフィールド、必須属性付き -->
-                <label>メール</label>
-                <!-- 入力フィールドに対するラベル -->
-            </div>
-            <div class="input-box">
-                <span class="icon">
-                    <!-- パスワードアイコンを表示するためのspan要素 -->
-                    <ion-icon name="lock-closed"></ion-icon>
-                </span>
-                <input type="password" placeholder=" " required>
-                <!-- パスワード入力用のフィールド、必須属性付き -->
-                <label>パスワード</label>
-                <!-- 入力フィールドに対するラベル -->
-            </div>
-            <button type="submit" onclick="triggerFadeOut(event)">ログイン</button>
-            <!-- フォーム送信用のボタン、クリック時にJavaScript関数(triggerFadeOut)を呼び出し -->
-            <div class="link-change-page">
-                <p><a href="register.html">新規登録</a></p>
-                <!-- 新規登録ページへのリンク -->
-            </div>
-        </form>
-    </div>
-
-    <!-- Ioniconsライブラリのスクリプト。モジュールと非モジュールのバージョンを提供 -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script>
-        function triggerFadeOut(event) {
-            event.preventDefault(); 
-            <!-- デフォルトのフォーム送信を防止 -->
-            const mainBox = document.getElementById('main-box');
-            mainBox.classList.add('fade-out');
-            <!-- main-box要素にfade-outクラスを追加、CSSで定義されたアニメーションをトリガー -->
-            setTimeout(() => {
-                document.getElementById('form').submit(); 
-                <!-- 5秒後にフォームを強制的に送信 -->
-            }, 10000); 
-        }
-    </script>
-</body>
-</html>
->>>>>>> develop
