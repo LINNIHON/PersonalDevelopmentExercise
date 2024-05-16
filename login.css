@@ -1,7 +1,5 @@
-/* Google FontsからPoppinsフォントファミリーをインポートし、様々な太さを利用可能にします。 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-/* 全ての要素に共通のスタイルを設定。余白、パディングをリセットし、ボックスサイジングをborder-boxに設定して、サイズ計算を境界線とパディングを含めるようにします。 */
 * {
     margin: 0;
     padding: 0;
@@ -9,21 +7,19 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* bodyタグにスタイルを適用し、フレックスボックスモデルを用いて中央寄せにします。 */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #000; /* 背景色を黒に設定 */
+    background: #000;
 }
 
-/* メインコンテナのスタイリング。幅、高さ、背景色、角の丸みを指定します。 */
 .main-box {
     position: relative;
     width: 400px;
     height: 450px;
-    background: #191919; /* 濃いグレー背景 */
+    background: #191919;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -31,7 +27,6 @@ body {
     flex-direction: column;
 }
 
-/* h2要素に白色とテキストセンタリング、トランジション効果を適用。 */
 h2 {
     font-size: 2em;
     color: #fff;
@@ -39,20 +34,17 @@ h2 {
     transition: .5s ease;
 }
 
-/* .purpleクラスでテキストの色を紫に指定。 */
 .purple {
     color: purple;
 }
 
-/* h4要素に白色とセンタリング、トランジションを設定。 */
 h4 {
-    font-size: 1em; 
+    font-size: 1em;
     color: #fff;
     text-align: center;
     transition: .5s ease;
 }
 
-/* 入力ボックスのスタイリング。下線とマージンを設定。 */
 .input-box {
     position: relative;
     width: 310px;
@@ -60,7 +52,6 @@ h4 {
     border-bottom: 2px solid #fff;
 }
 
-/* 入力ボックス内のラベル位置とスタイル設定。 */
 .input-box label {
     position: absolute;
     top: 50%;
@@ -68,11 +59,10 @@ h4 {
     transform: translateY(-50%);
     font-size: 1em;
     color: #fff;
-    pointer-events: none; /* ラベルがマウスイベントを受け取らないように設定 */
+    pointer-events: none;
     transition: .5s;
 }
 
-/* 入力フィールドにフォーカスがあるとき、またはプレースホルダがないときのラベルの動作を定義。 */
 .input-box input:focus~label,
 .input-box input:not(:placeholder-shown)~label {
     top: -5px;
@@ -80,7 +70,6 @@ h4 {
     visibility: hidden;
 }
 
-/* 入力フィールドのスタイリング。透明背景、白色のテキスト。 */
 .input-box input {
     width: 100%;
     height: 50px;
@@ -91,7 +80,6 @@ h4 {
     color: #fff;
 }
 
-/* 入力ボックス内のアイコン位置とスタイルを設定。 */
 .input-box .icon {
     position: absolute;
     right: 8px;
@@ -101,7 +89,6 @@ h4 {
     transition: .5s ease;
 }
 
-/* ボタンのスタイリング。幅、高さ、背景色、テキストスタイルを指定。 */
 button {
     width: 100%;
     height: 40px;
@@ -116,7 +103,6 @@ button {
     transition: .5s ease;
 }
 
-/* ページ間リンクのスタイル。テキストの色、サイズ、配置を指定。 */
 .link-change-page {
     color: #fff;
     font-size: .9em;
@@ -125,7 +111,6 @@ button {
     transition: .5s ease;
 }
 
-/* リンクのホバー効果を設定。ホバー時に下線を表示。 */
 .link-change-page p a {
     color: purple;
     text-decoration: none;
@@ -137,7 +122,6 @@ button {
     text-decoration: underline;
 }
 
-/* フェードアウトアニメーションのキーフレームを定義します。 */
 @keyframes fadeOut {
     0% {
         opacity: 1;
@@ -147,8 +131,6 @@ button {
     }
 }
 
-/* fade-outクラスが適用された要素にフェードアウトアニメーションを設定します。 */
 .fade-out {
-    animation: fadeOut 10s forwards;
+    animation: fadeOut 2s forwards;
 }
-
