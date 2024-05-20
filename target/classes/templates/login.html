@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Specifies the character encoding for the HTML document -->
+    <meta charset="UTF-8">
+    <!-- Sets the viewport to make the website responsive on different devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The title of the document, displayed on the browser tab -->
+    <title>ログイン画面</title>
+    <!-- Links an external CSS file for styling the page -->
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+    <!-- A container div for the main content of the login form -->
+    <div class="main-box" id="main-box">
+        <!-- The form element with a POST method for submitting data -->
+        <form th:action="@{/admin/login/process}" id="form" method="post">
+            <!-- A header for the form -->
+            <h2>Your Secret<span style="color: rgb(241, 70, 241);">s</span></h2>
+            <!-- A subheader for the form -->
+            <h4>ログイン</h4>
+            <!-- A div for the email input field -->
+            <div class="input-box">
+                <!-- An icon representing an email -->
+                <span class="icon">
+                    <ion-icon name="mail"></ion-icon>
+                </span>
+                <!-- An email input for the user's email, required for form submission -->
+                <input type="email" name="email" placeholder=" " required>
+                <!-- A label for the email input field -->
+                <label>メール</label>
+            </div>
+            <!-- A div for the password input field -->
+            <div class="input-box">
+                <!-- An icon representing a locked password -->
+                <span class="icon">
+                    <ion-icon name="lock-closed"></ion-icon>
+                </span>
+                <!-- A password input for the user's password, required for form submission -->
+                <input type="password" name="password" placeholder=" " required>
+                <!-- A label for the password input field -->
+                <label>パスワード</label>
+            </div>
+            <!-- A submit button with an onclick event to trigger a fade-out effect before submitting the form -->
+            <button onclick="triggerFadeOut(event)">ログイン</button>
+            <!-- A div containing a link to the registration page, also triggers a fade-out effect before navigation -->
+            <div class="link-change-page">
+                <p><a th:href="@{/admin/register}">新規登録</a></p>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts for including Ionicons, a set of icons used in the form -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- A script containing the function to handle the fade-out effect when submitting the form or navigating to the registration page -->
+    <script>
+        function triggerFadeOut(event, targetUrl = null) {
+            // Prevent the default form submission or link navigation
+            event.preventDefault();
+            // Get the main-box element
+            const mainBox = document.getElementById('main-box');
+            // Add the fade-out class to trigger the fade-out animation
+            mainBox.classList.add('fade-out');
+            // Set a timeout to delay the action (navigation or form submission) by 2 seconds
+            setTimeout(() => {
+                if (targetUrl) {
+                    // If a target URL is provided, navigate to that URL
+                    window.location.href = targetUrl;
+                } else {
+                    // Otherwise, submit the form
+                    document.getElementById('form').submit();
+                }
+            }, 2000); // 2000 milliseconds delay
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+/* Applying global styles to all elements */
+* {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    font-family: 'Poppins', sans-serif; /* Set the font family to 'Poppins' */
+}
+
+/* Styling for the body element */
+body {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    min-height: 100vh; /* Minimum height is 100% of the viewport height */
+    background-image: url(../images/background.png);/* Set background image */
+    background-size: cover; /* Ensure the background image covers the entire area */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+/* Styling for the main box container */
+.main-box {
+    position: relative; /* Relative positioning */
+    width: 700px; /* Fixed width */
+    height: auto; /* Height adjusts to content */
+    background: rgba(25, 25, 25, 0.5); /* Semi-transparent background color */
+    border-radius: 20px; /* Rounded corners */
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-direction: column; /* Arrange items in a column */
+    padding: 30px; /* Padding inside the box */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Apply blur effect for Safari */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add box shadow */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border with semi-transparent color */
+}
+
+/* Styling for h2 elements */
+h2 {
+    font-size: 2em; /* Font size */
+    color: #fff; /* Text color */
+    text-align: center; /* Center text */
+    transition: .5s ease; /* Smooth transition for changes */
+}
+
+/* Styling for elements with the class 'purple' */
+.purple {
+    color: purple; /* Text color */
+}
+
+/* Styling for the input box container */
+.input-box {
+    position: relative; /* Relative positioning */
+    width: 310px; /* Fixed width */
+    margin: 30px 0; /* Margin above and below */
+}
+
+/* Styling for text input and textarea elements inside the input box */
+.input-box input[type="text"],
+.input-box textarea {
+    width: 100%; /* Full width */
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    outline: none; /* No outline */
+    font-size: 1em; /* Font size */
+    color: #fff; /* Text color */
+    padding: 10px; /* Padding inside the input */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Additional styling for small input boxes */
+.input-box.small-input {
+    width: 90%; /* Almost full width */
+    height: 100; /* Fixed height */
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    font-size: 1em; /* Font size */
+    color: #fff; /* Text color */
+    padding: 10px; /* Padding inside the input */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Additional styling for large input boxes with textarea */
+.input-box.large-input textarea {
+    height: 300px; /* Fixed height */
+    border: 2px dashed #4B0082; /* Dashed border */
+    outline: none; /* No outline */
+    border-bottom: none; /* No bottom border */
+}
+
+/* Styling for the button element */
+button {
+    width: 100%; /* Full width */
+    height: 40px; /* Fixed height */
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent background color */
+    border: none; /* No border */
+    outline: none; /* No outline */
+    border-radius: 40px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Font size */
+    color: white; /* Text color */
+    font-weight: 500; /* Font weight */
+    transition: .5s ease; /* Smooth transition for changes */
+}

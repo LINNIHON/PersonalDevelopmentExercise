@@ -1,0 +1,162 @@
+/* Importing the 'Poppins' font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Applying global styles to all elements */
+* {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    font-family: 'Poppins', sans-serif; /* Set the font family to 'Poppins' */
+}
+
+/* Styling for the body element */
+body {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    min-height: 100vh; /* Minimum height is 100% of the viewport height */
+    background-image: url(../images/background.png);
+ /* Set background image */
+    background-size: cover; /* Ensure the background image covers the entire area */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+/* Styling for the main box container */
+.main-box {
+    position: relative; /* Relative positioning */
+    width: 400px; /* Fixed width */
+    height: 500px; /* Fixed height */
+    background: rgba(25, 25, 25, 0.5); /* Semi-transparent background color */
+    border-radius: 20px; /* Rounded corners */
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-direction: column; /* Arrange items in a column */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Apply blur effect for Safari */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add box shadow */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border with semi-transparent color */
+}
+
+/* Styling for h2 elements */
+h2 {
+    font-size: 2em; /* Font size */
+    color: #fff; /* Text color */
+    text-align: center; /* Center text */
+    transition: .5s ease; /* Smooth transition for changes */
+}
+
+/* Styling for elements with the class 'purple' */
+.purple {
+    color: purple; /* Text color */
+}
+
+/* Styling for h4 elements */
+h4 {
+    font-size: 1em; /* Font size */
+    color: #fff; /* Text color */
+    text-align: center; /* Center text */
+    transition: .5s ease; /* Smooth transition for changes */
+}
+
+/* Styling for the input box container */
+.input-box {
+    position: relative; /* Relative positioning */
+    width: 310px; /* Fixed width */
+    margin: 20px 0; /* Margin above and below */
+    border-bottom: 2px solid #fff; /* Bottom border */
+}
+
+/* Styling for labels inside the input box */
+.input-box label {
+    position: absolute; /* Absolute positioning */
+    top: 50%; /* Center vertically */
+    left: 5px; /* Slightly to the right */
+    transform: translateY(-50%); /* Adjust vertical position */
+    font-size: 1em; /* Font size */
+    color: #fff; /* Text color */
+    pointer-events: none; /* Disable pointer events */
+    transition: .5s; /* Smooth transition for changes */
+}
+
+/* Styling for labels when input is focused or has value */
+.input-box input:focus~label,
+.input-box input:not(:placeholder-shown)~label {
+    top: -5px; /* Move label above input */
+    opacity: 0; /* Hide label */
+    visibility: hidden; /* Ensure label is not visible */
+}
+
+/* Styling for input elements inside the input box */
+.input-box input {
+    width: 100%; /* Full width */
+    height: 50px; /* Fixed height */
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    outline: none; /* No outline */
+    font-size: 1em; /* Font size */
+    color: #fff; /* Text color */
+}
+
+/* Styling for the icon inside the input box */
+.input-box .icon {
+    position: absolute; /* Absolute positioning */
+    right: 8px; /* Slightly from the right */
+    color: #fff; /* Icon color */
+    font-size: 1.2em; /* Font size */
+    line-height: 57px; /* Adjust vertical alignment */
+    transition: .5s ease; /* Smooth transition for changes */
+}
+
+/* Styling for the button element */
+button {
+    width: 100%; /* Full width */
+    height: 40px; /* Fixed height */
+    background: #fff; /* Background color */
+    border: none; /* No border */
+    outline: none; /* No outline */
+    border-radius: 40px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Font size */
+    color: #191919; /* Text color */
+    font-weight: 500; /* Font weight */
+    transition: .5s ease; /* Smooth transition for changes */
+}
+
+/* Styling for the link change page section */
+.link-change-page {
+    color: #fff; /* Text color */
+    font-size: .9em; /* Font size */
+    text-align: center; /* Center text */
+    margin: 25px 0 10px; /* Margin above and below */
+    transition: .5s ease; /* Smooth transition for changes */
+}
+
+/* Styling for links inside the link change page section */
+.link-change-page p a {
+    color: purple; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: 600; /* Font weight */
+    transition: color .5s ease; /* Smooth transition for color changes */
+}
+
+/* Styling for links on hover */
+.link-change-page p a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Keyframes for the fade-out animation */
+@keyframes fadeOut {
+    0% {
+        opacity: 1; /* Full opacity at start */
+    }
+    100% {
+        opacity: 0; /* No opacity at end */
+    }
+}
+
+/* Styling for the fade-out class */
+.fade-out {
+    animation: fadeOut 2s forwards; /* Apply fade-out animation over 2 seconds */
+}

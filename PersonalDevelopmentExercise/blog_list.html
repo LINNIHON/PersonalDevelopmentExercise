@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures the webpage is displayed correctly on different devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログ</title> <!-- Page title -->
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="blog_list.css">
+</head>
+<body>
+    <!-- Main container for the blog list page -->
+    <div class="main-box">
+        <!-- Header for the blog list page -->
+        <h1>${name} + 'のブログ</h1>
+        <!-- Link to create a new blog post -->
+        <a href="blog_register.html"><h4><span style="color: rgb(241, 70, 241);">ブログをつくる</span></h4></a>
+        <!-- Container for dynamically added blog items -->
+        <div id="blogList">
+        </div>
+    </div>
+
+    <!-- JavaScript to handle dynamic addition and deletion of blog items -->
+    <script>
+        // Function to add a blog item to the blog list
+        function addBlogItem(id, title, content) {
+            const blogList = document.getElementById('blogList'); // Get the blog list container
+            const blogItem = document.createElement('div'); // Create a new div for the blog item
+            blogItem.classList.add('blogItem'); // Add the 'blogItem' class to the div
+            blogItem.setAttribute('data-id', id); // Set a data attribute for the blog item ID
+
+            // Set the inner HTML of the blog item with the title, a snippet of the content, and edit/delete links
+            blogItem.innerHTML = `
+                <h2>${title}</h2>
+                <p>${content.substring(0, 100)}...</p> <!-- Show a snippet of the content -->
+                <p><a href="blog_editing.html?id=${id}">編集</a>  |  <a href="#" onclick="deleteBlogItem(${id})">削除</a></p>
+            `;
+
+            blogList.appendChild(blogItem); // Append the blog item to the blog list
+        }
+
+        // Function to delete a blog item from the blog list
+        function deleteBlogItem(id) {
+            const blogItem = document.querySelector(`.blogItem[data-id='${id}']`); // Select the blog item by its data attribute
+            if (blogItem) { // If the blog item exists
+                blogItem.remove(); // Remove the blog item from the DOM
+            }
+        }
+
+        // Example: Adding blog items dynamically (for demonstration purposes)
+        addBlogItem(1, 'ファスト・ブログ', '最初のメッセージです。');
+        addBlogItem(2, 'セカンド・ブログ', '最後のメッセージです。');
+    </script>
+</body>
+</html>
