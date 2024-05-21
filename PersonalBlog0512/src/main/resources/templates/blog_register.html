@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログ登録</title>
+    <link rel="stylesheet" th:href="@{/css/blog_register.css}">
+</head>
+<body>
+    <form th:action="@{/blog/register/process}" method="post">
+        <h2><span style="color: rgb(241, 70, 241);">秘密</span>のブログ</h2>
+        <div class="input-box small-input">
+            <input type="text" id="title" name="title" placeholder="タイトル" required>
+        </div>
+        <div class="input-box large-input">
+            <label for="content"></label>
+            <textarea id="content" name="content" placeholder="ブログ内容" required></textarea>
+        </div>
+        <button type="submit">登録</button>
+    </form>
+</body>
+</html>

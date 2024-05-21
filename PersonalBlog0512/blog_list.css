@@ -1,0 +1,104 @@
+/* Styling for the body element */
+body {
+    font-family: Arial, sans-serif; /* Set the font family to Arial, with a fallback to sans-serif */
+    background-image: url('background.png'); /* Set background image */
+    background-size: cover; /* Ensure the background image covers the entire area */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Styling for the main container box */
+.main-box {
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add box shadow */
+    max-width: 800px; /* Maximum width */
+    margin: 50px auto; /* Center the box horizontally and add margin at the top */
+    text-align: center; /* Center-align text */
+}
+
+/* Styling for heading elements */
+h1, h2, h3 {
+    color: #333; /* Text color */
+    margin-bottom: 20px; /* Margin below the heading */
+}
+
+/* Styling for form elements */
+form {
+    margin-bottom: 20px; /* Margin below the form */
+}
+
+/* Styling for input box container */
+.input-box {
+    position: relative; /* Relative positioning */
+    margin-bottom: 20px; /* Margin below the input box */
+}
+
+/* Styling for labels inside the input box */
+.input-box label {
+    display: block; /* Display as block element */
+    margin-bottom: 8px; /* Margin below the label */
+    font-weight: bold; /* Bold text */
+}
+
+/* Styling for text input and textarea elements inside the input box */
+.input-box input[type="text"],
+.input-box textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the input */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+}
+
+/* Additional styling for textarea elements */
+textarea {
+    height: 150px; /* Fixed height */
+}
+
+/* Styling for button elements */
+button {
+    background-color: purple; /* Background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding inside the button */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+}
+
+/* Additional styling for button elements on hover */
+button:hover {
+    background-color: purple; /* Background color */
+}
+
+/* Styling for blog item container */
+.blogItem {
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    border: 1px solid #ddd; /* Border color */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    margin-bottom: 20px; /* Margin below the blog item */
+}
+
+/* Styling for h3 elements inside blog items */
+.blogItem h3 {
+    font-size: 20px; /* Font size */
+    color: #333; /* Text color */
+}
+
+/* Styling for form elements inside blog items */
+.blogItem form {
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Arrange items in a column */
+}
+
+/* Additional styling for button elements inside blog items */
+.blogItem button {
+    align-self: flex-start; /* Align button to the start of the container */
+    margin-top: 10px; /* Margin above the button */
+}

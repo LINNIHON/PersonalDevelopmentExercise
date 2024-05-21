@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures the webpage is displayed correctly on different devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登録</title> <!-- Page title -->
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="blog_register.css">
+</head>
+<body>
+    <!-- Form for registering a blog post -->
+    <form id="form" action="#" method="post">
+        <!-- Form header with styled text -->
+        <h2><span style="color: rgb(241, 70, 241);">秘密</span>のブログ</h2>
+        <!-- Hidden input field to store blog ID -->
+        <input type="hidden" id="blogId" name="id">
+        <!-- Input box for blog title -->
+        <div class="input-box small-input">
+            <input type="text" id="title" name="title" placeholder="タイトル" required>
+        </div>
+        <!-- Textarea for blog content -->
+        <div class="input-box large-input">
+            <label for="content"></label> <!-- Label for accessibility, kept empty for styling purposes -->
+            <textarea id="content" name="content" placeholder="ブログ内容" required></textarea>
+        </div>
+        <!-- Submit button for the form -->
+        <button type="submit">登録</button>
+    </form>
+
+    <!-- JavaScript to handle form submission and data population -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            // Get 'id' parameter from the URL
+            const blogId = urlParams.get('id');
+
+            // If a blog ID is found in the URL, populate the form with data
+            if (blogId) {
+                const blogData = {
+                    id: blogId, // Blog ID
+                    title: `Example Blog Post Title ${blogId}`, // Example title with the blog ID
+                    content: 'Example blog post content...' // Example content
+                };
+
+                // Populate the form fields with the example data
+                document.getElementById('blogId').value = blogData.id;
+                document.getElementById('title').value = blogData.title;
+                document.getElementById('content').value = blogData.content;
+            }
+
+            // Add event listener to the form for handling form submission
+            document.getElementById('form').addEventListener('submit', function(event) {
+                // Prevent the default form submission
+                event.preventDefault();
+                // Redirect to the blog list page
+                window.location.href = 'blog_list.html'; 
+            });
+        });
+    </script>
+</body>
+</html>

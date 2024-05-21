@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- デバイスに応じてウェブページを正しく表示するための設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新</title> <!-- ページタイトル -->
+    <!-- スタイリング用の外部CSSファイルへのリンク -->
+	<link rel="stylesheet" th:href="@{/css/blog_editing.css}">
+</head>
+<body>
+    <!-- ブログ投稿を更新するためのフォーム -->
+    <form id="form" action="#" method="post">
+        <!-- スタイリングされたテキストのフォームヘッダー -->
+        <h2><span style="color: rgb(241, 70, 241);">秘密</span>のブログ</h2>
+        <!-- ブログIDを格納する隠し入力フィールド -->
+        <input type="hidden" id="blogId" name="id">
+        <!-- ブログタイトルの入力ボックス -->
+        <div class="input-box small-input">
+            <input type="text" id="title" name="title" placeholder="タイトル" required>
+        </div>
+        <!-- ブログ内容のテキストエリア -->
+        <div class="input-box large-input">
+            <label for="content"></label> <!-- アクセシビリティのためのラベル（スタイリングのために空にしておく） -->
+            <textarea id="content" name="content" placeholder="ブログ内容" required></textarea>
+        </div>
+        <!-- フォームの送信ボタン -->
+        <button type="submit">更新</button>
+    </form>
+
+    <!-- フォーム送信とデータ表示を処理するJavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // URLパラメータを取得する
+            const urlParams = new URLSearchParams(window.location.search);
+            // URLから'id'パラメータを取得する
+            const blogId = urlParams.get('id');
+
+            // URLにブログIDがある場合、データを取得してフォームに入力する
+            if (blogId) {
+                fetch(`/blog/${blogId}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('ブログデータの取得に失敗しました');
+                        }
+                        return response.json();
+                    })
+                    .then(blogData => {
+                        // 取得したデータでフォームフィールドを入力する
+                        document.getElementById('blogId').value = blogData.postId;
+                        document.getElementById('title').value = blogData.title;
+                        document.getElementById('content').value = blogData.content;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching blog data:', error);
+                        alert('ブログデータの取得に失敗しました');
+                    });
+            }
+
+            // フォーム送信を処理するイベントリスナーを追加する
+            document.getElementById('form').addEventListener('submit', function(event) {
+                // デフォルトのフォーム送信を防ぐ
+                event.preventDefault();
+
+                // フォームデータを収集する
+                const blogData = {
+                    postId: document.getElementById('blogId').value,
+                    title: document.getElementById('title').value,
+                    content: document.getElementById('content').value
+                };
+
+                // バックエンドエンドポイントにフォームデータを送信する
+                fetch('/blog/update', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(blogData)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // 更新成功後、ブログリストページにリダイレクトする
+                        window.location.href = 'blog_list.html';
+                    } else {
+                        throw new Error('ブログの更新に失敗しました');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error updating blog:', error);
+                    alert('ブログの更新に失敗しました');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

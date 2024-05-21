@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログ</title>
+    <link rel="stylesheet" th:href="@{/css/blog_list.css}">
+</head>
+<body>
+    <div class="main-box">
+        <a th:href="@{/admin/logout}" title="クリックしてログアウト">
+            <h1 id="userName" th:text="${adminName} + 'さんのブログ'"></h1>
+        </a>
+
+        <a th:href="@{/blog/register}"><h4><span style="color: rgb(241, 70, 241);">ブログをつくる</span></h4></a>
+        <div id="blogList">
+            <div th:each="blog : ${blogList}" class="blogItem" th:data-id="${blog.postId}">
+                <h2 th:text="${blog.title}">ブログタイトル</h2>
+                <p th:text="${#strings.abbreviate(blog.content, 100)}">ブログ内容のスニペット</p>
+                <p>
+                    <a th:href="@{/blog/editing(id=${blog.postId})}">閲覧編集</a> |
+                    <a href="#" th:onclick="'deleteBlogItem(' + ${blog.postId} + '); return false;'">削除</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function deleteBlogItem(id) {
+            const confirmation = confirm('本当にこのブログを削除しますか？');
+            if (confirmation) {
+                fetch(`/blog/delete/${id}`, {
+                    method: 'DELETE',
+                }).then(response => {
+                    if (response.ok) {
+                        const blogItem = document.querySelector(`.blogItem[data-id='${id}']`);
+                        if (blogItem) {
+                            blogItem.remove();
+                            alert('ブログが削除されました');
+                        }
+                    } else {
+                        alert('ブログの削除に失敗しました');
+                    }
+                }).catch(error => {
+                    console.error('エラー:', error);
+                    alert('ブログの削除に失敗しました');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
